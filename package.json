@@ -1,0 +1,20 @@
+{
+  "name": "blog-management",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "node api.js && concurrently \"npm run dev -w apps/backend\" \"npm run dev -w apps/frontend\"",
+    "build": "node api.js && npm run build -ws",
+    "start": "node api.js && concurrently \"npm run start -w apps/backend\" \"npm run preview -w apps/frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "volta": {
+    "node": "18.20.8",
+    "npm": "10.9.8"
+  }
+}
